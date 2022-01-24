@@ -1,5 +1,4 @@
 .subscribe {
-  transform: translateY(50%);
   // margin-bottom: 63px;
   &-container {
     background-color: white;
@@ -12,5 +11,19 @@
   }
   &-content {
     max-width: 371px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .subscribe {
+    transform: translateY(50%);
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  .subscribe-container {
+    flex-direction: column;
+    gap: 30px 0;
+    padding: 30px;
   }
 }

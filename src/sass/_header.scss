@@ -6,17 +6,6 @@
     justify-content: space-between;
     align-items: center;
   }
-
-  .menu {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 0 40px;
-    &-link {
-      font-size: 16px;
-      color: inherit;
-    }
-  }
   &-auth {
     display: flex;
     align-items: center;
@@ -39,8 +28,8 @@
 @media screen and (max-width: 1023.98px) {
   .header {
     padding: 25px 0 50px;
-    .menu {
-      display: none;
-    }
+  }
+  .header-auth {
+    display: none;
   }
 }

@@ -1,4 +1,4 @@
-import React, {Component, useEffect} from 'react';
+import React, {Component, useEffect, useState, useRef} from 'react';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import './sass/app.scss';
@@ -29,9 +29,27 @@ function SamplePrevArrow(props) {
 }
 
 function App() {
-  useEffect(() => {
+  const menuRef = useRef(null);
+  const toggleMenuRef = useRef(null);
+  const [menuShowed, setMenuShowed] = useState(false);
+
+  const handleClickOutside = (event) => {
+    const { target } = event
+    if (!menuRef.current.contains(target) && !toggleMenuRef.current.contains(target)) {
+      if(menuShowed) setMenuShowed(false);
+    }
     
-  }, []);
+  }
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside)
+  });
+
+  useEffect(() => {
+    return function cleanup() {
+      document.addEventListener('click', handleClickOutside)
+    };
+  });
   const settings = {
     dots: true,
     infinite: true,
@@ -47,14 +65,29 @@ function App() {
         <ul> {dots} </ul>
       </div>
     ),
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false,
+          arrows: false
+        }
+      }]
   };
+  const showMenu = (e) => {
+    console.log('ok');
+    setMenuShowed(true);
+  }
   return (
     <div className="wrapper">      
       <header className="header">
         <div className="container">
           <div className="header-container">
             <img srcSet="/images/Logo.png 2x" alt="" className="header-logo" />
-            <ul className="menu">
+            <ul className={menuShowed ? "menu is-show" : "menu"} ref={menuRef}>
               <li className="menu-item">
                 <a href="#" className="menu-link">About</a>
               </li>
@@ -74,7 +107,19 @@ function App() {
               <li className="menu-item">
                 <a href="#" className="menu-link">Help</a>
               </li>
+
+              <li className="menu-item menu-item--auth">
+                <a href="#" className="header-signin">Sign in</a>
+                <a href="#" className="button button--outline">Sign up</a>
+              </li>
             </ul>
+
+            <div className="menu-toggle" onClick={showMenu} ref={toggleMenuRef}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
             <div className="header-auth">
               <a href="#" className="header-signin">Sign in</a>
               <a href="#" className="button button--outline">Sign up</a>

@@ -28,6 +28,9 @@
         color: white;
       }
     }
+    .button {
+      width: 100%;
+    }
   }
   &-image img {
     margin: 0 auto 30px;
@@ -63,9 +66,9 @@
   .plan-list {
   display: grid;
   justify-content: flex-start;
-  grid-auto-columns: 300px;
+  grid-auto-columns: 310px;
   grid-auto-flow: column;
-  grid-gap: 0 50px;
+  grid-gap: 0 30px;
   overflow: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
