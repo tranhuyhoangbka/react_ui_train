@@ -8,4 +8,16 @@ body {
 .heading {
   font-family: $secondary-font;
   color: $gray-darkest;
+  &--small {
+    font-size: 36px;
+    line-height: 139%;
+  }
+}
+
+.text {
+  font-weight: 300;
+  line-height: 176%;
+  font-size: 17px;
+  color: $gray-darker;
+  font-family: $third-font;
 }

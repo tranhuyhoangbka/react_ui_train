@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import FullCalendar, {formatDate} from '@fullcalendar/react' // must go before plugins
 // import { Calendar } from '@fullcalendar/core';
-import esLocale from '@fullcalendar/core/locales/ja';
+// import esLocale from '@fullcalendar/core/locales/ja';
 import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
 import interactionPlugin from "@fullcalendar/interaction"
 import googleCalendarPlugin from '@fullcalendar/google-calendar';
@@ -14,7 +14,7 @@ function Calendar() {
   }
 
   let str = formatDate(new Date(), {
-    month: 'long',
+    month: 'numeric',
     year: 'numeric',
     day: 'numeric',
     locale: 'ja',
@@ -41,10 +41,10 @@ function Calendar() {
         initialView="dayGridMonth"
         timeZone='Asia/Tokyo'
         locale={jaLocale}
-        eventSources={[{googleCalendarId: 'en.vietnamese#holiday@group.v.calendar.google.com'}]}
+        eventSources={[{googleCalendarId: 'ja.japanese#holiday@group.v.calendar.google.com'}]}
         events={[
           { title: 'event 1', start: '2022-01-28', end: '2022-01-28', price: 20},
-          { title: 'event 2', date: '2022-01-29 18:00', price: 30},
+          { title: 'event 2', date: '2022-02-11 18:00', price: 30},
           { title: 'event 3', start: '2022-02-01', end: '2022-02-03', price: 40},
         ]}
         dateClick={handleDateClick}

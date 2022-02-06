@@ -7,6 +7,7 @@
   max-width: 1260px;
   margin: 0 auto;
   padding: 0 20px;
+  outline: 1px solid red;
 }
 
 ul {
@@ -39,7 +40,25 @@ ul {
 }
 
 .dropdown {
+  width: 100%;
   &-list {
     display: none;
   }
+  &-select {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 31px;
+    border: 0.8px solid $gray-dark;
+    border-radius: 6px;
+    color: $gray-darkest;
+    cursor: pointer;
+  }
+}
+
+.viewall {
+  color: $primary-color;
+  display: flex;
+  align-items: center;
+  gap: 0 11px;
 }
