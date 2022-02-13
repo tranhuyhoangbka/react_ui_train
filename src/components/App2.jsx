@@ -1,20 +1,40 @@
-import React from 'react';
-// import { library } from '@fortawesome/fontawesome-svg-core'
+import React, {useState, useEffect, useRef} from 'react';
 import { faFacebookF, faTwitter } from '@fortawesome/free-brands-svg-icons'
-// import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
-
-// library.add(fas)
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleDown, faAngleRight, faStar } from '@fortawesome/free-solid-svg-icons'
+import { faAngleDown, faAngleRight, faStar, faBars } from '@fortawesome/free-solid-svg-icons'
 import '../sass/app2/app.scss';
 function App2() {
+  const menuRef = useRef(null);
+  const toggleMenuRef = useRef(null);
+  const [menuShowed, setMenuShowed] = useState(false);
+
+  const handleClickOutside = (event) => {
+    const { target } = event
+    if (!menuRef.current.contains(target) && !toggleMenuRef.current.contains(target)) {
+      if(menuShowed) setMenuShowed(false);
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside)
+  });
+
+  useEffect(() => {
+    return function cleanup() {
+      document.addEventListener('click', handleClickOutside)
+    };
+  });
+
+  const showMenu = (e) => {
+    setMenuShowed(true);
+  }
   return (
     <div className='wrapper'>
       <header className='header'>
         <div className='container'>
           <div className='header-main'>
             <img srcSet='/images/app2/logo.png 2x' />
-            <ul className="menu">
+            <ul className={menuShowed ? 'menu is-show' : 'menu'} ref={menuRef}>
               <li className="menu-item">
                 <a href="#" className="menu-link">Home</a>
               </li>
@@ -34,6 +54,8 @@ function App2() {
                 <a href='#' className="btn btn--primary">Register</a>
               </li>
             </ul>
+
+            <span ref={toggleMenuRef}><FontAwesomeIcon icon={faBars} className='menu-toggle' onClick={showMenu} /></span>
           </div>
         </div>
       </header>

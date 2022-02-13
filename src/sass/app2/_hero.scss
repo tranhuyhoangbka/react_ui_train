@@ -7,7 +7,6 @@
   }
   &-content {
     width: 100%;
-    max-width: 470px;
   }
   &-heading {
     font-size: 64px;
@@ -38,7 +37,34 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 30px;
   }
-  &-image {
-    transform: translateX(85px);
+  
+  @media screen and (min-width: 1280px) {
+    &-image {
+      transform: translateX(85px);
+    }
   }
+
+  @media screen and (max-width: 1023.98px) {
+    &-main {
+      flex-direction: column;
+      gap: 50px 0;
+    }
+    margin-bottom: 75px;
+  }
+  
+  @media screen and (min-width: 1024px) {
+    &-content {
+      max-width: 470px;
+    }
+  }
+  @media screen and (max-width: 767.98px) {
+    &-heading {
+      font-size: 50px;
+      margin-bottom: 40px;
+    }
+    &-form {
+      grid-template-columns: 1fr;
+    }
+  }
+  
 }

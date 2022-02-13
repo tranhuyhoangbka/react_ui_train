@@ -78,7 +78,6 @@ function Home() {
       }]
   };
   const showMenu = (e) => {
-    console.log('ok');
     setMenuShowed(true);
   }
   return (
