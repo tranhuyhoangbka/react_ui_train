@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { faFacebookF, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleDown, faAngleRight, faStar, faBars } from '@fortawesome/free-solid-svg-icons'
+import { faAngleDown, faAngleRight, faStar, faBars, faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import '../sass/app2/app.scss';
 function App2() {
   const menuRef = useRef(null);
@@ -217,25 +217,80 @@ trip, but now, they can also let Lonely Planet Experiences lead the way
           <div className='container'>
             <div className='testimonial-main'>
               <h2 className='heading heading--small testimonial-heading'>Testimonials</h2>
-              <div className='testimonial-container'>
-                <div className='testimonial-content'>
-                  <div className='testimonial-rating'>
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
+              <div className='testimonial-list'>
+                <div className='arrows'>
+                  <div className='arrow arrow-left'>
+                  <FontAwesomeIcon icon={faAngleLeft} />
                   </div>
-                  <div className='testimonial-desc text'>
-                    “Quisque in lacus a urna fermentum euismod. Integer mi nibh, dapibus ac scelerisque eu, facilisis quis purus. Morbi blandit sit amet turpis nec”
-                  </div>
-                  <div className='testimonial-author'>
-                    <h3 className='testimonial-name'>Edward Newgate</h3>
-                    <span className='testimonial-job'>Founder Circle</span>
+
+                  <div className='arrow arrow-right'>
+                  <FontAwesomeIcon icon={faAngleRight} />
                   </div>
                 </div>
-                <div className='testimonial-image'>
-                  <img srcSet='/images/app2/testimonial1.png 2x' alt='' />
+                <div className='testimonial-item'>
+                  <div className='testimonial-content'>
+                    <div className='testimonial-rating'>
+                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} />
+                    </div>
+                    <div className='testimonial-desc text'>
+                      “Quisque in lacus a urna fermentum euismod. Integer mi nibh, dapibus ac scelerisque eu, facilisis quis purus. Morbi blandit sit amet turpis nec”
+                    </div>
+                    <div className='testimonial-author'>
+                      <h3 className='testimonial-name'>Edward Newgate</h3>
+                      <span className='testimonial-job'>Founder Circle</span>
+                    </div>
+                  </div>
+                  <div className='testimonial-image'>
+                    <img srcSet='/images/app2/testimonial1.png 2x' alt='' />
+                  </div>
+                </div>
+
+                <div className='testimonial-item'>
+                  <div className='testimonial-content'>
+                    <div className='testimonial-rating'>
+                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} />
+                    </div>
+                    <div className='testimonial-desc text'>
+                      “Quisque in lacus a urna fermentum euismod. Integer mi nibh, dapibus ac scelerisque eu, facilisis quis purus. Morbi blandit sit amet turpis nec”
+                    </div>
+                    <div className='testimonial-author'>
+                      <h3 className='testimonial-name'>Edward Newgate</h3>
+                      <span className='testimonial-job'>Founder Circle</span>
+                    </div>
+                  </div>
+                  <div className='testimonial-image'>
+                    <img srcSet='/images/app2/testimonial1.png 2x' alt='' />
+                  </div>
+                </div>
+
+                <div className='testimonial-item'>
+                  <div className='testimonial-content'>
+                    <div className='testimonial-rating'>
+                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} />
+                    </div>
+                    <div className='testimonial-desc text'>
+                      “Quisque in lacus a urna fermentum euismod. Integer mi nibh, dapibus ac scelerisque eu, facilisis quis purus. Morbi blandit sit amet turpis nec”
+                    </div>
+                    <div className='testimonial-author'>
+                      <h3 className='testimonial-name'>Edward Newgate</h3>
+                      <span className='testimonial-job'>Founder Circle</span>
+                    </div>
+                  </div>
+                  <div className='testimonial-image'>
+                    <img srcSet='/images/app2/testimonial1.png 2x' alt='' />
+                  </div>
                 </div>
               </div>
             </div>

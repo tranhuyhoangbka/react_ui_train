@@ -41,10 +41,36 @@ ul {
 
 .dropdown {
   width: 100%;
+  position: relative;
   &-list {
-    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    border-radius: 12px;
+    background-color: white;
+    // command get-shadown 1
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    opacity: 0;
+    // command css hide
+    visibility: hidden;
+    transition: all 0.2s ease;
+    transform: translateY(20px);
+    &:before {
+      // command: dropdown-spacing
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      transform: translateY(-100%);
+      background-color: transparent;
+      opacity: 0;
+    }
   }
-  &-select {
+  &-select, &-item {
     display:flex;
     justify-content: space-between;
     align-items: center;
@@ -53,6 +79,17 @@ ul {
     border-radius: 6px;
     color: $gray-darkest;
     cursor: pointer;
+  }
+  &-item {
+    border: 0;
+    &:hover {
+      background-color: $gray-dark;
+    }
+  }
+  &:hover .dropdown-list {
+    // command css show
+    opacity: 1;
+    visibility: visible;
   }
 }
 
