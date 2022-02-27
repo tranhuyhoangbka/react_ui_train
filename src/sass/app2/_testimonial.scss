@@ -3,14 +3,20 @@
   &-heading {
     margin-bottom: 43px;
   }
+  &-wrapper {
+    position: relative;
+  }
   &-main {
     max-width: 1070px;
     position: relative;
     overflow: hidden;
+    position: relative;
   }
   &-list {
     display: flex;
-    position: relative;
+    // command tsall
+    transition: all 0.5s linear;
+    // overflow: hidden;
   }
   &-item {
     display:flex;
@@ -87,4 +93,37 @@
     }
   }
   
+}
+
+.arrows {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  border-radius: 16px 0 0 0;
+  padding: 20px 0 0 30px;
+  gap: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  .arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 100rem;
+    border: 2px solid;
+    cursor: pointer;
+    color: black;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &.disabled {
+      color: #d7d7d7;
+      cursor: not-allowed;
+    }
+    svg {
+      
+    }
+  }
 }
