@@ -1,20 +1,48 @@
-import React from 'react'
+import React, {useState, useEffect, useRef} from 'react';
 import '../sass/app3/app.scss'
 
 const App3 = () => {
+  const menuRef = useRef(null);
+  const toggleMenuRef = useRef(null);
+  const [menuShowed, setMenuShowed] = useState(false);
+
+  const handleClickOutside = (event) => {
+    const { target } = event
+    if (!menuRef.current.contains(target) && !toggleMenuRef.current.contains(target)) {
+      if(menuShowed) setMenuShowed(false);
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside)
+  })
+
+  useEffect(() => {
+    return function cleanup() {
+      document.addEventListener('click', handleClickOutside)
+    };
+  });
+
+  const showMenu = (e) => {
+    setMenuShowed(true);
+  }
   return (
     <div className="wrapper">
       <header className="header">
         <div className="header-top">
           <div className="container">
             <img srcSet="/images/app3/logo.png 2x" alt="" />
-            <ul className="menu">
+            <ul ref={menuRef} className={menuShowed ? 'menu is-active' : 'menu'}>
               <li className="menu-item"><a href="" className="menu-link">Home</a></li>
               <li className="menu-item"><a href="" className="menu-link">Projects</a></li>
               <li className="menu-item"><a href="" className="menu-link">Designers</a></li>
               <li className="menu-item"><a href="" className="menu-link">Articles</a></li>
             </ul>
             <a href="" className="header-contact font-heading">Contact</a>
+            <button className="menu-toggle" ref={toggleMenuRef} onClick={(e) => showMenu(e)}>
+              <span className='line line-first'></span>
+              <span className="line line-second"></span>
+            </button>
           </div>
         </div>
         <img srcSet='/images/app3/header-lines.png 2x' />
@@ -29,10 +57,11 @@ const App3 = () => {
                 <img srcSet="/images/app3/header-line2.png 2x" alt="" />
                 <p className="header-text">Lorem ipsum onsectetur adipiscing elit. Blandit mauris etiam faucibus laoreet tellus nam. Gravida solor aenean orci, facilisis senectus.</p>
               </div>
-              <img srcSet="/images/app3/img2.png 2x" alt="" className="header-img" />
+              
             </div>
-            <div>
-              <img srcSet='/images/app3/img1.png 2x' />
+            <div className='header-images'>
+              <img srcSet='/images/app3/img1.png 2x' className='header-img-large' />
+              <img srcSet="/images/app3/img2.png 2x" alt="" className="header-img-small" />
             </div>
           </div>
         </div>
@@ -44,7 +73,7 @@ const App3 = () => {
               <h2 className="about-heading font-heading g-heading">
                 Our remember-able stories
               </h2>
-              <p className="about-desc">
+              <p className="g-text about-desc">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit mauris etiam faucibus laoreet vestibulum pretium tellus nam. Gravida aenean orci, facilisis senectus.
               </p>
             </div>
@@ -67,7 +96,7 @@ const App3 = () => {
           <div className="container">
             <div className="project-header">
               <h2 className="font-heading project-heading g-heading">Our latest projects</h2>
-              <a href="" className="project-all font-heading">All Projects</a>
+              <a href="" className="project-all g-link font-heading">All Projects</a>
             </div>
           </div>
           <div className='project-list'>
@@ -162,6 +191,11 @@ const App3 = () => {
             <div className="footer-image">
               <img srcSet="/images/app3/img8.png 2x" alt="" />
             </div>
+          </div>
+          <div className="footer-bottom">
+            <p className='g-text'>©Heling 2021.</p>
+            <img srcSet="/images/app3/logo.png 2x" alt="" className='footer-logo' />
+            <p className='g-text'>Privacy Policy</p>
           </div>
         </div>
       </footer>

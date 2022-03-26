@@ -8,6 +8,7 @@
 }
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 html, body {
   height: 100%;
@@ -62,7 +63,6 @@ body {
 
 .header {
   background-color: var(--primary-color);
-  margin-bottom: 260px;
   &-top {
     padding: 3rem 0;
     .container {
@@ -114,8 +114,67 @@ body {
     margin-top: 4.7rem;
     opacity: 0.6;
   }
+  
+  @media screen and (max-width: 1023.98px) {
+    &-contact {
+      font-size: 18px;
+      margin-left: auto;
+    }
+    &-heading-child {
+      display: none;
+    }
+    &-main {
+      padding-top: 100px;
+    }
+  }
+  @media screen and (max-width: 767.98px) {
+    padding-bottom: 57px;
+    &-main {
+      flex-direction: column-reverse;
+      padding-top: 80px;
+    }
+    &-images {
+      align-self: stretch;
+      position: relative;
+      margin-bottom: 80px;
+    }
+    &-img-small {
+      position: absolute;
+      right: 16px; 
+      bottom: 30px;
+    }
+    &-img-large {
+      width: 100%;
+      max-width: 330px;
+    }
+    &-heading {
+      font-size: 46px;
+      line-height: calc(56 / 46);
+      margin-bottom: 40px;
+    }
+    &-info {
+      margin-left: 0;
+      width: 100%;
+      max-width: 360px;
+    }
+    &-text {
+      font-size: 18px;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    position: relative;
+    &-img-small {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transform: translateY(87px);
+    }
+  }
+  
+  
 }
 .menu {
+  padding: 0;
   display: flex;
   gap: 5rem;
   align-items: center;
@@ -125,10 +184,64 @@ body {
     color: var(--gray);
     opacity: 0.4;
     text-decoration: none;
+    // command tsall
+    transition: all 0.2s linear;
+    &:hover {
+      opacity: 1;
+    }
   }
+  &-toggle {
+    display: none;
+    width: 23px;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+    span {
+      height: 3px;
+      width: 100%;
+      background-color: var(--secondary-color);
+    }
+    span.line-first {
+      width: 50%;
+    }
+  }
+  @media screen and (max-width: 1023.98px) {
+    --spacing: 10px;
+    position: fixed;
+    top: var(--spacing);
+    right: var(--spacing);
+    bottom: var(--spacing);
+    width: 300px;
+    border-radius: 8px;
+    background-color: white;
+    z-index: 9999;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateX(150%);
+    &.is-active {
+      transform: translateX(0);
+    }
+    &-link {
+      color: var(--primary-color);
+      display: block;
+      padding: 15px;
+    }
+
+    &-toggle {
+      display: inline-flex;
+      flex-direction: column;
+      margin-left: 30px;
+      gap: 5px;
+    }
+  }
+  
 }
 
 .about {
+  padding: 260px 0 150px;
   margin-bottom: 120px;
   &-header {
     display:flex;
@@ -147,6 +260,7 @@ body {
     line-height: calc(34 / 24);
     width: 100%;
     max-width: 638px;
+    color: inherit;
   }
   &-content {
     display:flex;
@@ -168,6 +282,30 @@ body {
   &-line {
     margin-top: 150px;
   }
+  @media screen and (max-width: 767.98px) {
+    padding: 100px 0 0;
+    margin-bottom: 60px;
+    &-header {
+      flex-direction: column;
+      gap: 20px;
+      align-items: flex-start;
+      margin-bottom: 70px;
+    }
+    &-heading {
+      max-width: 268px;
+    }
+    &-content {
+      flex-direction: column;
+      row-gap: 60px;
+    }
+    &-caption {
+      font-size: 36px;
+      line-height: calc(42/36);
+      text-align: center;
+    }
+  }
+  
+  
 }
 .g-heading {
   font-size: 70px;
@@ -178,12 +316,28 @@ body {
   line-height: calc(30 / 24);
   color: inherit;
   font-family: var(--secondary-font);
+  flex-shrink: 0;
 }
 .g-text {
   font-size: 24px;
   line-height: calc(34 / 24);
   color: var(--secondary-color);
 }
+@media screen and (max-width: 767.98px) {
+  .g-heading {
+    font-size: 46px;
+  }
+  .g-text, .g-link {
+    font-size: 18px;
+  }
+  .about {
+    &-desc {
+      color: inherit;
+      line-height: calc(30 / 18);
+    }
+  }
+}
+
 .project {
   &-header {
     display:flex;
@@ -192,8 +346,6 @@ body {
     margin-bottom: 60px;
   }
   &-all {
-    font-size: 24px;
-    line-height: calc(30 / 24);
     color: inherit;
   }
   &-item {
@@ -220,6 +372,24 @@ body {
     font-weight: 500;
     margin-bottom: 10px;
   }
+  @media screen and (max-width: 767.98px) {
+    &-header {
+      align-items: flex-end;
+      margin-bottom: 50px;
+    }
+    &-item {
+      height: 244px;
+    }
+    &-info {
+      left: 16px;
+      bottom: 16px;
+    }
+    &-name {
+      font-size: 32px;
+      line-height: calc(40 / 32);
+    }
+  }
+  
 }
 
 .designer {
@@ -247,6 +417,20 @@ body {
     margin-top: 15px;
     display: inline-block;
   }
+  @media screen and (max-width: 767.98px) {
+    padding-top: 120px;
+    &-main {
+      flex-direction: column;
+      gap: 70px 0;
+    }
+    &-heading, &-desc {
+      margin-bottom: 20px;
+    }
+    &-link {
+      margin-top: 20px;
+    }
+  }
+  
 }
 
 .blog {
@@ -289,6 +473,25 @@ body {
     line-height: 2;
     opacity: 0.5;
   }
+  @media screen and (max-width: 767.98px) {
+    padding-top: 120px;
+    padding-bottom: 120px;
+    &-header {
+      gap: 30px 0;
+      margin-bottom: 60px;
+    }
+    &-list {
+      grid-template-columns: 100%;
+      gap: 80px 0;
+    }
+    &-title {
+      font-size: 20px;
+    }
+    &-time {
+      font-size: 15px;
+    }
+  }
+  
 }
 .text-dot {
   position: relative;
@@ -314,6 +517,7 @@ body {
     display:flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 149px;
   }
   &-content {
     width: 100%;
@@ -339,6 +543,50 @@ body {
     font-size: 60px;
     line-height: calc(72 / 60);
   }
+  &-bottom {
+    padding-bottom: 36px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    p {
+      color: var(--gray);
+      opacity: 0.4;
+    }
+  }
+  @media screen and (max-width: 767.98px) {
+    position: relative;
+    padding-top: 56px;
+    .back-to-top {
+      display: none;
+    }
+    &-heading {
+      margin-bottom: 40px;
+      margin-top: 130px;
+    }
+    &-info {
+      margin-bottom: 40px;
+      span {
+        font-size: 24px;
+      }      
+    }
+    &-info-item {
+      font-size: 36px;
+    }
+    &-main {
+      flex-direction: column;
+      gap: 110px 0;
+      padding-bottom: 62px;
+      margin-bottom: 31px;
+      border-bottom: 1px solid rgba(248, 243, 237, 0.233);
+    }
+    &-logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 56px;
+    }
+  }
+  
 }
 .back-to-top {
   display: flex;
