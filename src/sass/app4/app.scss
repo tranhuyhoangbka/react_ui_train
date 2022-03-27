@@ -1,0 +1,80 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+  font-size: 62.5%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient( to right bottom, var(--primary), var(--secondary));
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 5rem;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+  outline: none;
+  border: none;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+:root {
+  --primary: #8a57e9;
+  --secondary: #4c75e6;
+}
+
+.dropdown {
+  width: 30rem;
+  position: relative;
+  &:hover {
+    .dropdown-list {
+      opacity: 1;
+      visibility: visible;
+    } 
+  }
+}
+
+.dropdown-select {
+  padding: 1.5rem;
+  border-radius: 4px;
+  background-color: white;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.dropdown-list {
+  background-color: white;
+  border-radius: 4px;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s linear, visibility 0.2s linear;
+
+ .dropdown-item {
+   padding: 1rem;
+   font-size: 1.4rem;
+ } 
+}
