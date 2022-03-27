@@ -78,3 +78,37 @@ p, h1, h2, h3, h4, h5, h6 {
    font-size: 1.4rem;
  } 
 }
+
+.field {
+  position: relative;
+  max-width: 500px;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px 30px;
+  font-size: 1.4rem;
+  font-family: 'Poppins', sans-serif;
+  &:focus {
+    border-color: blueviolet;
+  }
+}
+
+.eye {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  max-width: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.is-active {
+  display: block;
+}
